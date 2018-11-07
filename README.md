@@ -58,6 +58,7 @@ GRANT ALL ON BucketList.* TO 'username'@'localhost';
 GRANT ALL ON BucketList.* TO 'username'@'%'
 
 ###PROCEDURE
+
 DELIMITER $$
 CREATE DEFINER=`username`@`localhost` PROCEDURE `sp_createUser`(
     IN p_name VARCHAR(255),
@@ -66,12 +67,9 @@ CREATE DEFINER=`username`@`localhost` PROCEDURE `sp_createUser`(
 )
 BEGIN
     if ( select exists (select 1 from BucketList.tbl_user where user_name = p_name) ) THEN
-     
-        select 'Username Exists !!';
-     
+        select 'Username Exists !!';    
     ELSE
-     
-        insert into tbl_user
+             insert into tbl_user
         (
             user_name,
             user_email,
@@ -88,10 +86,9 @@ BEGIN
 END$$
 DELIMITER ;
 
+#checking the PROCEDURE
 SHOW PROCEDURE STATUS WHERE db = 'BucketList';
-
 SHOW CREATE PROCEDURE sp_createUser;
-
 DROP PROCEDURE sp_createUser;
 
 ##########################################################
