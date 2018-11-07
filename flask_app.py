@@ -10,8 +10,8 @@ app = Flask(__name__)
 mysql = MySQL()
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'anand'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'asura22nov'
+app.config['MYSQL_DATABASE_USER'] = 'username'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'userpass'
 app.config['MYSQL_DATABASE_DB'] = 'BucketList'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 #app.config['MYSQL_DATABASE_DB']= 'tbl_user'
@@ -70,5 +70,5 @@ def signup():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0') #default port 5000 for ngnix
 
